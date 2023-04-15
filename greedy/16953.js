@@ -5,10 +5,8 @@ let [number, goalNumber] = input.map(Number)
 let cnt = 1
 while(goalNumber >= number){
     if(goalNumber === number) break;
-    let numberToStr = goalNumber.toString().split('')
-    if(numberToStr[numberToStr.length - 1] === '1'){
-        numberToStr.pop()
-        goalNumber = Number(numberToStr.join(''))
+    if(goalNumber % 10 === 1){
+        goalNumber = parseInt(goalNumber / 10)
     } else {
         goalNumber = goalNumber / 2
     }
