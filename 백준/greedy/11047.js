@@ -1,16 +1,18 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().split('\n')
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
-const [cnt, money] = input.shift().split(' ').map(Number)
-const unit = input.map(Number).sort((a, b) => b - a)
-
-let count = 0
-function getExchange(money, unitArr, idx){
-    if(money === 0) return;
-    if(idx > unitArr.length) return;
-    count += Math.floor(money / unitArr[idx])
-    let other = money % unitArr[idx]
-    return getExchange(other, unitArr, idx + 1)
+const coinList = [];
+let [n, k] = input[0].split(" ").map(Number);
+for (let i = n; i > 0; i--) {
+  coinList[n - i] = Number(input[i]);
 }
 
-getExchange(money, unit, 0)
-console.log(count)
+let coinCount = 0;
+let i = 0;
+while (k !== 0) {
+  const currentCount = parseInt(k / coinList[i]);
+  coinCount += currentCount;
+  k -= coinList[i] * currentCount;
+  i++;
+}
+
+console.log(coinCount);
