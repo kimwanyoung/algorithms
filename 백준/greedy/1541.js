@@ -1,12 +1,15 @@
-const input = require('fs').readFileSync('/dev/stdin').toString()
+const input = require("fs").readFileSync("/dev/stdin").toString().trim();
 
-const b = input.split('-')
+const splitBasedOnMinus = input.split("-");
 
-let sum = 0
-for(let i = 0 ; i < b.length; i++){
-  let cur = b[i].split('+').map(Number).reduce((a, b) => a + b)
-  if(i === 0) sum += cur
-  else sum -= cur
+let sum = 0;
+for (let i = 0; i < splitBasedOnMinus.length; i++) {
+  let current = splitBasedOnMinus[i]
+    .split("+")
+    .map(Number)
+    .reduce((a, b) => a + b);
+  if (i === 0) sum += current;
+  else sum -= current;
 }
 
-console.log(sum)
+console.log(sum);
