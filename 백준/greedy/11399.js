@@ -1,13 +1,15 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().split('\n')
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
-const personNumber = Number(input[0])
-const timeList = input[1].split(' ').map(Number).sort((a, b) => a - b)
+const personCount = Number(input[0]);
+const personList = input[1].split(" ").map(Number);
 
-let minutes = 0
-let sum = 0
-for(let i = 0 ; i < personNumber ; i ++){
-    sum += timeList[i]
-    minutes += sum
+personList.sort((a, b) => a - b);
+
+let totalMinutes = 0;
+let result = 0;
+for (let i = 0; i < personCount; i++) {
+  totalMinutes = totalMinutes + personList[i];
+  result += totalMinutes;
 }
 
-console.log(minutes)
+console.log(result);
