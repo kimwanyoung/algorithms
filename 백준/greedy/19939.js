@@ -1,10 +1,16 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().split(' ')
+const input = require("fs").readFileSync("/dev/stdin").toString().trim();
 
-const [balls, teams] = input.map(Number)
-let sum = teams * (teams + 1) / 2
-if(sum > balls) console.log(-1)
-else {
-    let n = balls - sum
-    if(n % teams === 0) console.log(teams - 1)
-    else console.log(teams)
+let [n, k] = input.split(" ").map(Number);
+
+let sum = 0;
+for (let i = 1; i <= k; i++) {
+  sum += i;
+}
+
+if (sum > n) {
+  console.log(-1);
+} else {
+  n -= sum;
+  if (n % k === 0) console.log(k - 1);
+  else console.log(k);
 }
