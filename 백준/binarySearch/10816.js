@@ -1,34 +1,22 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().split('\n')
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
-const numberList = input[1].split(' ').map(Number)
-const findNumberList = input[3].split(' ').map(Number)
+const cardCount = Number(input[0]);
+const havingCard = input[1].split(" ").map(Number);
 
-const lowerBound = (arr, target, start, end) => {
-  while(start < end) {
-    let mid = parseInt((start + end) / 2)
-    if(arr[mid] >= target) end = mid
-    else start = mid  + 1
-  }
-  return end
+const cardTable = {};
+for (let i = 0; i < cardCount; i++) {
+  const card = havingCard[i];
+  if (cardTable[card] !== undefined) cardTable[card] += 1;
+  else cardTable[card] = 1;
 }
 
-const upperBound = (arr, target, start, end) => {
-  while(start < end) {
-    let mid = parseInt((start + end) / 2)
-    if(arr[mid] > target) end = mid
-    else start = mid  + 1
-  }
-  return end
+const findCount = Number(input[2]);
+const findCards = input[3].split(" ").map(Number);
+
+let answer = "";
+for (let i = 0; i < findCount; i++) {
+  const findCard = !cardTable[findCards[i]] ? 0 : cardTable[findCards[i]];
+  answer += findCard + " ";
 }
 
-
-numberList.sort((a, b) => a - b)
-
-let result = ''
-for(let i = 0; i < findNumberList.length; i++){
-  let startIndex = lowerBound(numberList, findNumberList[i], 0, numberList.length)
-  let endIndex = upperBound(numberList, findNumberList[i], 0, numberList.length)
-  result += endIndex - startIndex + ' '
-}
-
-console.log(result)
+console.log(answer);
