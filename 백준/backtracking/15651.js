@@ -4,7 +4,6 @@ const [n, m] = input.split(" ").map(Number);
 
 const arr = [];
 for (let i = 1; i <= n; i++) arr.push(i);
-const visited = new Array(n).fill(false);
 const selected = [];
 
 let answer = "";
@@ -18,10 +17,8 @@ function dfs(arr, depth) {
   }
   for (let i = 0; i < arr.length; i++) {
     selected.push(i);
-    visited[i] = true;
-    dfs(arr, depth + 1, i + 1);
+    dfs(arr, depth + 1);
     selected.pop();
-    visited[i] = false;
   }
 }
 
