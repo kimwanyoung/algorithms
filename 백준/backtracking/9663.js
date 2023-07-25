@@ -1,27 +1,26 @@
-let input = require('fs').readFileSync('/dev/stdin').toString()
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
-let n = Number(input)
+const n = Number(input[0]);
+const queens = [];
 
-let queen = []
-const possible = (x, y) => {
-  for(let [a, b] of queen){
-    if(a === x || b === y) return false
-    if(Math.abs(a - x) === Math.abs(b - y)) return false
+function possible(x, y) {
+  for (const [a, b] of queens) {
+    if (a === x || b === y) return false;
+    if (Math.abs(a - x) === Math.abs(b - y)) return false;
   }
-  return true
+  return true;
 }
 
-
-let count = 0
-const dfs = (row) => {
-  if(n === row) count += 1
-  for(let i = 0; i < n; i++){
-    if(!possible(row, i))continue
-    queen.push([row, i])
-    dfs(row + 1)
-    queen.pop()
+let cnt = 0;
+function dfs(row) {
+  if (row === n) cnt += 1;
+  for (let i = 0; i < n; i++) {
+    if (!possible(row, i)) continue;
+    queens.push([row, i]);
+    dfs(row + 1);
+    queens.pop();
   }
 }
 
-dfs(0)
-console.log(count)
+dfs(0);
+console.log(cnt);
