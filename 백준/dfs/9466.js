@@ -1,3 +1,5 @@
+let input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
+
 const dfs = (x, graph, visited, finished, result) => {
   visited[x] = true;
   let y = graph[x];
@@ -12,8 +14,6 @@ const dfs = (x, graph, visited, finished, result) => {
   }
   finished[x] = true;
 };
-
-let input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
 let testCase = Number(input[0]);
 let line = 1;
