@@ -1,4 +1,4 @@
-const input = require('fs').readFileSync('/dev/stdin').toString().split('\n')
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
 let [n, m] = input[0].split(" ").map(Number);
 let data = [];
