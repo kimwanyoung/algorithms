@@ -17,13 +17,14 @@ const input = [
 ]
 
 const wordCount = Number(input[0]);
-let wordArr = new Set();
+let wordArr = [];
 
 for (let i = 1; i <= wordCount; i++) {
-    wordArr.add(input[i]);
+    wordArr.push(input[i]);
 }
 
-wordArr = [...wordArr];
+wordArr = [...new Set(wordArr)];
+
 wordArr.sort((a, b) => {
     if(a.length === b.length) {
         if(a > b) return 1;
