@@ -28,7 +28,7 @@ const solution = (players, callings) => {
         playerRanking[calledPlayer] -= 1;
         playerRanking[frontPlayer] += 1;
 
-        players[calledPlayerRank - 1] = callings[i];
+        players[calledPlayerRank - 1] = calledPlayer;
         players[calledPlayerRank] = frontPlayer;
     }
 
