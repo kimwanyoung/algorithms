@@ -36,5 +36,6 @@ for (let i = size; i >= 0; i--){
     used += usage
 }
 
-if(used === length * width * height) console.log(res)
+if(used ===
+    length * width * height) console.log(res)
 else console.log(-1)
