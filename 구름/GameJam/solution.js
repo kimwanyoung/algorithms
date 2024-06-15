@@ -65,15 +65,6 @@ function playGame(y, x, board, commands) {
 
     return board.flat().reduce((cnt, element) => cnt + element, 0);
 }
-
-function move(y, x, board, count, command) {
-
-
-
-
-    return [y, x];
-}
-
 const input =["4",
     "4 2",
     "2 4",
