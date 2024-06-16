@@ -35,5 +35,6 @@ function solution(N, max, board, K) {
         K--;
     }
 
+
     console.log(board.join(""));
 }
