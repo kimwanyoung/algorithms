@@ -230,7 +230,7 @@ function dijkstra(a, b) {
             if(i[0] === a && cur === b) continue;
             if(i[0] === b && cur === a) continue;
 
-            const cost = distance[cur] + i[1];
+            const cost = dist + i[1];
             if (cost < distance[i[0]]) {
                 distance[i[0]] = cost;
                 q.enq([i[0], cost]);
