@@ -45,6 +45,7 @@ function findSafeArea(rain) {
         }
     }
 
+
     for (let i = 0; i < N; i++) {
         for (let j = 0; j < N; j++) {
             if (map[i][j] === 1 && !visited[i][j]) {
