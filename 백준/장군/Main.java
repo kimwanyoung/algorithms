@@ -52,36 +52,34 @@ public class Main {
 				int nr = dy[i] + current[0];
 				int nc = dx[i] + current[1];
 
-				if (nr > 9 || nr < 0 || nc > 8 || nc < 0 || visited[nr][nc])
+				if (nr > 9 || nr < 0 || nc > 8 || nc < 0 || visited[nr][nc]) {
 					continue;
+				}
 
-				boolean flag = false;
 				int y = dy[i] < 0 ? -1 : 1;
 				int x = dx[i] < 0 ? -1 : 1;
-				if(Math.abs(dy[i]) > Math.abs(dx[i])) {
-				   	int temp = current[0] + y;
+				if (Math.abs(dy[i]) > Math.abs(dx[i])) {
+					int temp = current[0] + y;
 
-					if(map[temp][current[1]] != 0) {
+					if (map[temp][current[1]] != 0) {
 						continue;
 					}
 
-					if(map[temp + y][current[1] + x] != 0) {
-						flag = true;
+					if (map[temp + y][current[1] + x] != 0) {
+						continue;
 					}
 
 				} else {
 					int temp = current[1] + x;
 
-					if(map[current[0]][temp] != 0) {
+					if (map[current[0]][temp] != 0) {
 						continue;
 					}
 
-					if(map[current[0] + y][temp + x] != 0) {
-						flag = true;
+					if (map[current[0] + y][temp + x] != 0) {
+						continue;
 					}
 				}
-
-				if (flag) continue;
 
 				q.offer(new int[] {nr, nc, current[2] + 1});
 				visited[nr][nc] = true;
