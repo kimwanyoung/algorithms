@@ -14,14 +14,14 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        arr = new boolean[N][M];
-        initializeBoard(br, arr);
+        initializeBoard(br);
 
         findMinRepaint();
         System.out.println(min);
     }
 
-    private static void initializeBoard(BufferedReader br, boolean arr[][]) throws Exception {
+    private static void initializeBoard(BufferedReader br) throws Exception {
+        arr = new boolean[N][M];
         for(int i = 0; i < N; i++) {
             String line = br.readLine();
             for(int j = 0; j < M; j++) {
